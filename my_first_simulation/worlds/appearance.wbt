@@ -1,0 +1,94 @@
+#VRML_SIM R2023a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/robots/gctronic/e-puck/protos/E-puck.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/floors/protos/Floor.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/factory/containers/protos/WoodenBox.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/appearances/protos/OldSteel.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.31203219593482234 0.2640140073812093 0.9126513642167021 1.7177407390710058
+  position -0.14623682987942177 -1.6224423156327945 1.1835732187774421
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+Floor {
+  size 1 1
+}
+Solid {
+  translation 0.2 0 0.2
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../../../Pictures/red_brick_wall.jpg"
+          ]
+        }
+        roughness 1
+        metalness 0
+      }
+      geometry Sphere {
+        radius 0.1
+      }
+    }
+  ]
+  boundingObject Sphere {
+    radius 0.1
+  }
+  physics Physics {
+  }
+}
+E-puck {
+  translation 0 0.01 0
+  controller "my_first_simulation"
+}
+WoodenBox {
+  translation 0.07 0.29 0.05
+  size 0.1 0.1 0.1
+}
+Solid {
+  translation 2.34641e-07 0.46 0.05
+  rotation 0 1 0 4.6928012867022945e-06
+  children [
+    DEF Dinding Shape {
+      appearance OldSteel {
+      }
+      geometry Box {
+        size 1 0.1 0.1
+      }
+    }
+  ]
+  name "solid(1)"
+  boundingObject USE Dinding
+}
+Solid {
+  translation -0.00999995 -0.45 0.05
+  rotation 0 1 0 4.6928e-06
+  children [
+    USE Dinding
+  ]
+  name "solid(2)"
+  boundingObject USE Dinding
+}
+Solid {
+  translation 0.45 4.58827e-07 0.0499983
+  rotation 2.3463999999870816e-06 -2.3463999999870816e-06 0.9999999999944944 -1.5707953071795862
+  children [
+    USE Dinding
+  ]
+  name "solid(3)"
+}
+Solid {
+  translation -0.46 0.00999954 0.05
+  rotation 0 0 1 -1.5707953071795862
+  children [
+    USE Dinding
+  ]
+  name "solid(4)"
+}
